@@ -18,6 +18,24 @@
             padding: 1.5em 0;
             text-align: center;
             border-bottom: 2px solid #2c3e50; /* Borda sutil */
+            position: relative; /* Necessário para posicionar a foto absolutamente */
+        }
+        .profile-picture {
+            position: absolute; /* Posição absoluta em relação ao header */
+            top: 15px; /* Ajuste a distância do topo */
+            right: 20px; /* Ajuste a distância da direita */
+            width: 100px; /* Largura da imagem */
+            height: 100px; /* Altura da imagem */
+            border-radius: 50%; /* Torna a imagem redonda */
+            overflow: hidden; /* Garante que a imagem seja cortada em círculo */
+            border: 3px solid #64b5f6; /* Borda azul clara para a foto */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra suave */
+        }
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Garante que a imagem cubra a área sem distorção */
+            display: block; /* Remove espaço extra abaixo da imagem */
         }
         nav {
             background-color: #2c3e50; /* Tom de azul mais claro para o nav */
@@ -77,6 +95,9 @@
 <body>
     <header>
         <h1>Meu Portfólio</h1>
+        <div class="profile-picture">
+            <img src="caminho/para/sua/foto.jpg" alt="Foto de Perfil">
+        </div>
     </header>
 
     <nav>
@@ -97,7 +118,6 @@
     </footer>
 
     <script>
-        // Exemplo: Capturar o nome digitado no console
         document.getElementById('nomeUsuario').addEventListener('input', function() {
             console.log("Nome digitado: " + this.value);
         });
