@@ -18,24 +18,6 @@
             padding: 1.5em 0;
             text-align: center;
             border-bottom: 2px solid #2c3e50; /* Borda sutil */
-            position: relative; /* Necessário para posicionar a foto absolutamente */
-        }
-        .profile-picture {
-            position: absolute; /* Posição absoluta em relação ao header */
-            top: 15px; /* Ajuste a distância do topo */
-            right: 20px; /* Ajuste a distância da direita */
-            width: 100px; /* Largura da imagem */
-            height: 100px; /* Altura da imagem */
-            border-radius: 50%; /* Torna a imagem redonda */
-            overflow: hidden; /* Garante que a imagem seja cortada em círculo */
-            border: 3px solid #64b5f6; /* Borda azul clara para a foto */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra suave */
-        }
-        .profile-picture img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Garante que a imagem cubra a área sem distorção */
-            display: block; /* Remove espaço extra abaixo da imagem */
         }
         nav {
             background-color: #2c3e50; /* Tom de azul mais claro para o nav */
@@ -60,6 +42,15 @@
             padding: 2em;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             border-radius: 10px;
+            display: flex; /* Habilita o Flexbox */
+            justify-content: space-between; /* Distribui o espaço entre os itens */
+            align-items: center; /* Alinha os itens verticalmente ao centro */
+            flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+        }
+        .container-text {
+            flex-grow: 1; /* Permite que este div ocupe o máximo de espaço possível */
+            margin-right: 20px; /* Espaço entre o texto e a imagem */
+            max-width: calc(100% - 120px); /* Garante espaço para a imagem + margem em linha */
         }
         h1, h2 {
             color: #fff;
@@ -67,6 +58,16 @@
         }
         p {
             line-height: 1.6;
+        }
+        .tech-icons {
+            display: flex;
+            justify-content: flex; /* Alinha os ícones à direita do seu container-text */
+            margin-top: 20px;
+        }
+        .tech-icons img {
+            height: 50px;
+            width: 60px;
+            margin-top: 50px;
         }
         footer {
             text-align: center;
@@ -79,7 +80,7 @@
             border-top: 2px solid #2c3e50; /* Borda sutil */
         }
         input#nomeUsuario {
-            width: calc(100% - 22px); /* Ajusta a largura para padding */
+            width: calc(100% - 22px);
             padding: 10px;
             margin-top: 10px;
             border: 1px solid #37474f;
@@ -90,37 +91,68 @@
         input#nomeUsuario::placeholder {
             color: #607d8b;
         }
+
+        /* Estilos para a imagem de perfil dentro do container */
+        .profile-image-in-container {
+            width: 250px; /* Tamanho da imagem, ajustável */
+            height: 250px; /* Tamanho da imagem, ajustável */
+            border-radius: 50%; /* Torna a imagem circular */
+            object-fit: cover; /* Garante que a imagem preencha o círculo sem distorção */
+            border: 3px solid #f7fbfb; /* Borda ao redor da imagem */
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Sombra para destaque */
+            flex-shrink: 0; /* Impede que a imagem encolha */
+        }
+
+        /* Responsividade básica para quando a tela for muito pequena */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Coloca os itens em coluna em telas menores */
+                align-items: center; /* Centraliza os itens na coluna */
+            }
+            .container-text {
+                margin-right: 0; /* Remove a margem lateral */
+                text-align: center; /* Centraliza o texto */
+                max-width: 100%; /* Ocupa a largura total */
+            }
+            .profile-image-in-container {
+                margin-top: 20px; /* Adiciona espaço acima da imagem */
+            }
+            .tech-icons {
+                justify-content: center; /* Centraliza os ícones em telas menores */
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Meu Portfólio</h1>
-        <div class="profile-picture">
-            <img src="caminho/para/sua/foto.jpg" alt="Foto de Perfil">
-        </div>
     </header>
 
     <nav>
-        <a href="index.html">Principal</a>
+        <a href="home.html">Principal</a>
         <a href="sobre.html">Sobre</a>
         <a href="contato.html">Contato</a>
     </nav>
 
     <div class="container">
-        <h2>Bem-vindo(a) ao meu Portfólio!</h2>
-        <p>Olá! Meu nome é:</p>
-        <input type="text" id="nomeUsuario" placeholder="Seu Nome Completo">
-        <p>Aqui você encontrará uma amostra dos meus trabalhos e projetos.</p>
+        <div class="container-text">
+            <h2>Bem-vindo(a) ao meu Portfólio!</h2>
+            <p>Sou o Vinicius Correia</p>
+            <p>Aqui você encontrará uma amostra dos meus trabalhos e projetos.</p>
+            <div class="tech-icons">
+                <img height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                <img height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" />
+                <img height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" />
+                <img height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" />
+                <img height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain-wordmark.svg" alt="Git" />
+                <img height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" alt="GitHub" />
+            </div>
         </div>
+        <img class="profile-image-in-container" src="minhaImagem.jpeg" alt="Imagem de Perfil">
+    </div>
 
     <footer>
-        <p>&copy; 2025 Seu Nome. Todos os direitos reservados.</p>
+        <hr>
     </footer>
-
-    <script>
-        document.getElementById('nomeUsuario').addEventListener('input', function() {
-            console.log("Nome digitado: " + this.value);
-        });
-    </script>
 </body>
 </html>
